@@ -30,7 +30,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     private final AsyncListDiffer<ContactUi> differ = new AsyncListDiffer<>(
             new AdapterListUpdateCallback(this),
-            new AsyncDifferConfig.Builder<ContactUi>(new BaseListDiffCallback<ContactUi>()).build()
+            new AsyncDifferConfig.Builder<>(new BaseListDiffCallback<ContactUi>()).build()
     );
 
     @NonNull
@@ -95,27 +95,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         }
     }
 
-    //static class ListDiffCallback implements ListDiffInterface<ContactUi> { // extends DiffUtil.ItemCallback<ContactUi> {
+    static class ListDiffCallback implements ListDiffInterface<ContactUi> {
 
-        //@Override
-        //public boolean areItemsTheSame(@NonNull ContactUi oldItem, @NonNull ContactUi newItem) {
-        //    return oldItem.hashCode() == newItem.hashCode();
-        //}
+        @Override
+        public boolean theSameAs(ContactUi newItem) {
+            return this.hashCode() == newItem.hashCode();
+        }
 
-        //@Override
-        //public boolean areContentsTheSame(@NonNull ContactUi oldItem, @NonNull ContactUi newItem) {
-        //    return oldItem.equals(newItem);
-        //}
-
-    //    @Nullable
-        //@Override
-    //    public Object getChangePayload(@NonNull ContactUi oldItem, @NonNull ContactUi newItem) {
-    //        return newItem;
-    //     }
-
-    //    @Override
-    //    public boolean theSameAs(ContactUi other) {
-    //        return false;
-    //    }
-    //}
+    }
 }
