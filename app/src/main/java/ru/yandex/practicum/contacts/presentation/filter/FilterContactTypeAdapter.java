@@ -88,12 +88,4 @@ public class FilterContactTypeAdapter extends RecyclerView.Adapter<FilterContact
             }
         }
     }
-
-    static class ListDiffCallback implements ListDiffInterface<FilterContactTypeUi> {
-
-        @Override
-        public boolean theSameAs(FilterContactTypeUi newItem) {
-            return this.hashCode() == newItem.hashCode();
-        }
-    }
 }

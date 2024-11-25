@@ -94,13 +94,4 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
                     .into(binding.contactPhoto);
         }
     }
-
-    static class ListDiffCallback implements ListDiffInterface<ContactUi> {
-
-        @Override
-        public boolean theSameAs(ContactUi newItem) {
-            return this.hashCode() == newItem.hashCode();
-        }
-
-    }
 }

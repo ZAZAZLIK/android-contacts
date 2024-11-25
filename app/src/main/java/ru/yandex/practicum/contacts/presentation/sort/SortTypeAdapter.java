@@ -91,11 +91,4 @@ public class SortTypeAdapter extends RecyclerView.Adapter<SortTypeAdapter.ViewHo
             }
         }
     }
-
-    static class ListDiffCallback implements ListDiffInterface<SortTypeUI> {
-        @Override
-        public boolean theSameAs(SortTypeUI newItem) {
-            return this.hashCode() == newItem.hashCode();
-        }
-    }
 }
